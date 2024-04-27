@@ -14,6 +14,18 @@ export default function Calculator(){
                     <label htmlFor="imperial">Imperial</label>
                 </div>
             </div>
+            <div className="input-group input-measurements">
+                <div className="input-pair" id="height" >
+                    <input type="number" name="height" />
+                    <span>cm</span>
+                    <label htmlFor="height">Height</label>
+                </div>
+                <div className="input-pair"  id="weight" >
+                    <input type="number" name="weight" id="weight" />
+                    <span>kg</span>
+                    <label htmlFor="weight">Weight</label>
+                </div>
+            </div>
         </div>
         
 }
