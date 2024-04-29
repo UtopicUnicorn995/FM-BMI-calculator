@@ -1,5 +1,8 @@
 import Logo from '/assets/images/logo.svg'
 import Calculator from './components/Calculator.jsx'
+import YourResult from './components/YourResult.jsx'
+import Tips from './components/Tips.jsx'
+import Limitations from './components/Limitations.jsx'
 
 function App() {
 
@@ -25,6 +28,9 @@ function App() {
             </div>
             <Calculator/>
         </section>
+        <YourResult/>
+        <Tips/>
+        <Limitations/>
       </main>
     </>
   )
