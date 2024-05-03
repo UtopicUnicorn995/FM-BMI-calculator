@@ -17,7 +17,6 @@ export default function Limitations() {
         </p>
       </div>
       <div className="limitations__card-container">
-        <div className="limitations__card-group">
             <div className="limitations-card">
             <div className="limitations__card-head">
                 <img src={genderIcon} alt="" />
@@ -29,8 +28,6 @@ export default function Limitations() {
                 evaluating their BMI.
             </p>
             </div>
-            </div>
-        <div className="limitations__card-group">
           <div className="limitations-card">
             <div className="limitations__card-head">
               <img src={ageIcon} alt="" />
@@ -51,8 +48,6 @@ export default function Limitations() {
               as it doesn't differentiate muscle from fat.
             </p>
           </div>
-        </div>
-        <div className="limitations__card-group">
           <div className="limitations-card">
             <div className="limitations__card-head">
               <img src={pregnancyIcon} alt="" />
@@ -75,7 +70,6 @@ export default function Limitations() {
               advised to discuss this with your GP or practice nurse.
             </p>
           </div>
-        </div>
       </div>
     </section>
   );

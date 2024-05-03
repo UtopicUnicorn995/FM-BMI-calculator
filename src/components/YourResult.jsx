@@ -1,4 +1,4 @@
-import eatingMan from "../../public/assets/images/image-man-eating.webp";
+import eatingMan from "/assets/images/image-man-eating.webp";
 
 export default function YourResult() {
   return (

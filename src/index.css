@@ -123,6 +123,7 @@ section#keyvisual{
   flex-direction: row-reverse;
   height: 727px;
   margin-bottom: 65px;
+  max-width: 2000px;
 }
 
 #keyvisual #keyvisualBox-bg{
@@ -132,7 +133,7 @@ section#keyvisual{
   width: calc(100% - 438px);
   background: linear-gradient(132deg, rgba(214, 230, 254, 0) 0%, rgba(214, 230, 254, 1) 100%);
   border-radius: 0 0 35px 35px;
-  padding: 266px 0 0 116px;
+  padding: 266px 0 0 466px;
 }
 
 .keyvisual__text-container{
@@ -202,15 +203,18 @@ section#keyvisual{
   border-radius: 50%;
 }
 
-.input-radio input:active{
+/* .input-radio input:active{
   background-color: var(--blue);
   border: 8px solid rgba(52, 95, 246, 0.15);
+} */
+
+
+
+.input-radio input:checked{
+  background-color: var(--blue);
+  border: 8px solid var(--borders);
 }
 
-.input-radio input:focus{
-  background-color: var(--blue);
-  border: 3px solid rgba(52, 95, 246, 0.15);
-}
 
 .input-group.input-measurements{
   column-gap: 24px;
@@ -230,6 +234,11 @@ section#keyvisual{
   color: var(--gunmetal);
   font-size: 24px;
   font-weight: bold;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.input-group.input-group.input-measurements input::-webkit-inner-spin-button{
   -webkit-appearance: none;
   -moz-appearance: none;
 }
@@ -390,6 +399,9 @@ section#keyvisual{
   display: flex;
   flex-direction: column;
   row-gap: 24px;
+  column-gap: 24px;
+  display: grid;
+  grid-template-columns: auto auto;
 }
 
 .limitations-card{
@@ -399,6 +411,35 @@ section#keyvisual{
   padding: 32px;
   border-radius: 16px;
 }
+
+.limitations-card:first-child{
+  grid-area: 1/1;
+  transform: translateX(calc(365px/2));
+}
+
+.limitations-card:nth-child(2){
+  grid-area: 2/1;
+  transform: translateX(calc(-365px/4));
+}
+
+.limitations-card:nth-child(3){
+  grid-area: 2/2;
+  transform: translateX(calc(-365px/4));
+}
+
+.limitations-card:nth-child(4){
+  grid-area: 3/1;
+  transform: translateX(calc(-365px/2));
+}
+
+
+.limitations-card:nth-child(5){
+  grid-area: 3/2;
+  transform: translateX(calc(-365px/2));
+}
+
+
+
 
 .limitations-card .limitations__card-head{
   display: flex;
@@ -418,20 +459,126 @@ section#keyvisual{
   margin: 16px 0 0;
 }
 
-.limitations__card-group{
-  display: flex;
-  column-gap: 24px;
+
+@media (max-width: 1800px){
+  #keyvisual #keyvisualBox-bg{
+    padding: 266px 0 0 166px;
+  }
 }
 
-.limitations__card-group:first-child{
-  flex-direction: row-reverse;
-  transform: translateX(calc(-465px/2));
+@media (max-width: 1439px){
+  section#keyvisual{
+    padding: 0 60px;
+  }
+  #keyvisual #keyvisualBox-bg{
+    padding: 266px 0 0 56px;
+  }
+
+  #limitations{
+    flex-direction: column;
+    text-align: center;
+    row-gap: 56px;
+  }
+
+  .limitations-text{
+    max-width: none;
+  }
+
+  .limitations__card-container{
+    position: inherit;
+    margin-left: 0;
+    left: 0;
+    justify-content: center;
+  }
+
+  .limitations-card{
+    width: 465px;
+  }
+
+  .limitations-card:first-child{
+    grid-area: 1/1;
+    transform: translateX(0);
+  }
+  
+  .limitations-card:nth-child(2){
+    grid-area: 1/2;
+    transform: translateX(0);
+  }
+  
+  .limitations-card:nth-child(3){
+    grid-area: 2/1;
+    transform: translateX(0);
+  }
+  
+  .limitations-card:nth-child(4){
+    grid-area: 2/2;
+    transform: translateX(0);
+  }
+  
+  
+  .limitations-card:nth-child(5){
+    grid-area: 3/2;
+    transform: translateX(calc(-465px/2));
+  }
+  
 }
 
-.limitations__card-group:nth-child(2){
-  transform: translateX(calc(-465px/4));
+@media (max-width: 1239px){
+  section{
+    padding: 0 40px;
+  }
+  section#keyvisual{
+    flex-direction: column;
+    margin-bottom: 200px;
+  }
+  #keyvisual #keyvisualBox-bg{
+    width: 100%;
+    padding: 112px 40px 0;
+    left: 0;
+    
+  }
+
+  .keyvisual__text-container{
+    width: 100%;
+    max-width: none;
+    text-align: center;
+  }
+  #calculator{
+    margin-left: 0;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    max-width: none;
+    width: calc(100% - 80px);
+    transform: translate(40px, 30%);
+  }
+  #yourResult{
+    column-gap: 75px;
+    padding-left: 0;
+  }
+  #yourResult .yourResult__text{
+    max-width: 435px;
+  }
+  .yourResult__image{
+    margin-left: -60px;
+  }
 }
 
-.limitations__card-group:last-child{
-  transform: translateX(calc(-465px/2));
+
+@media (max-width: 1023px){
+  #tips{
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+    row-gap: 40px;
+    border-radius: 0;
+  }
+  .tips-card{
+    padding: 0 40px;
+    max-width: none;
+    flex-direction: row;
+    column-gap: 40px;
+    align-items: center;
+  }
 }
