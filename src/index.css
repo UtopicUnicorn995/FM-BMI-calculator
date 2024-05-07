@@ -236,11 +236,13 @@ section#keyvisual{
   font-weight: bold;
   -webkit-appearance: none;
   -moz-appearance: none;
+  appearance: none;
 }
 
 .input-group.input-group.input-measurements input::-webkit-inner-spin-button{
   -webkit-appearance: none;
   -moz-appearance: none;
+  appearance: none;
 }
 
 .input-group.input-group.input-measurements input::placeholder{
@@ -281,7 +283,7 @@ section#keyvisual{
 #calculator #result{
   padding: 32px;
   color: var(--pure-white);
-  background-color: var(--blue);
+  background: linear-gradient(90deg, #345FF6 0%, #587DFF 100%);
   display: flex;
   column-gap: 24px;
   border-radius: 16px 99px 99px 16px;
@@ -410,6 +412,7 @@ section#keyvisual{
   box-shadow: 16px 32px 56px  0 rgba(143, 174, 207, 0.25);
   padding: 32px;
   border-radius: 16px;
+  text-align: start;
 }
 
 .limitations-card:first-child{
@@ -457,6 +460,15 @@ section#keyvisual{
 
 .limitations-card p{
   margin: 16px 0 0;
+}
+
+.input-imperial{
+  display: flex;
+  column-gap: 16px;
+}
+
+.input-imperial .input__imperial-container{
+  position: relative;
 }
 
 
@@ -570,15 +582,162 @@ section#keyvisual{
   #tips{
     flex-direction: column;
     width: 100%;
-    padding: 0;
+    padding: 68px 40px;
     row-gap: 40px;
     border-radius: 0;
   }
   .tips-card{
-    padding: 0 40px;
     max-width: none;
     flex-direction: row;
     column-gap: 40px;
     align-items: center;
+  }
+
+  #limitations h2{
+    font-size: 32px;
+  }
+
+  .limitations-card{
+    max-width: 335px;
+    width: 100%;
+  }
+  .limitations-card:nth-child(5){
+    transform: translateX(calc(-335px / 2))
+  }
+  #yourResult .yourResult__text{
+    max-width: 335px;
+  }
+  #yourResult .yourResult__text h2{
+    font-size: 32px;
+    line-height: 1.1;
+  }
+  #yourResult .yourResult__text p{
+    margin: 30px 0;
+  }
+  #calculator #result .result-text h2{
+    font-size: 48px;
+    line-height: 1.1;
+  }
+  #calculator #result .result-text p{
+    font-size: 16px;
+  }
+  .keyvisual__text-container p{
+    font-size: 16px;
+  }
+  #keyvisual h1{
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 767px) {
+  #keyvisual #keyvisualBox-bg{
+    padding-top: 90px;
+  }
+
+  #limitations{
+    padding: 0 24px;
+  }
+
+  .limitations__card-container{
+    row-gap: 16px;
+    column-gap: 0;
+  }
+
+  .limitations-card{
+    max-width: none;
+    width: 100%;
+  }
+  .limitations-card:first-child{
+    grid-area: 1/1;
+    transform: translateX(0);
+  }
+  
+  .limitations-card:nth-child(2){
+    grid-area: 2/1;
+    transform: translateX(0);
+  }
+  
+  .limitations-card:nth-child(3){
+    grid-area: 3/1;
+    transform: translateX(0);
+  }
+  
+  .limitations-card:nth-child(4){
+    grid-area: 4/1;
+    transform: translateX(0);
+  }
+  
+  
+  .limitations-card:nth-child(5){
+    grid-area: 5/1;
+    transform: translateX(0);
+  }
+
+  #tips {
+    padding: 56px 24px;
+  }
+  .tips-card{
+    flex-direction: column;
+    align-items: start;
+    row-gap: 32px;
+  }
+  #yourResult{
+    flex-direction: column;
+    padding: 0;
+    row-gap: 48px;
+    margin-bottom: 70px;
+  }
+  #yourResult .yourResult__text{
+    max-width: none;
+    padding: 0 24px;
+  }
+  #yourResult .yourResult__text p{
+    margin-bottom: 0;
+  }
+  .yourResult__image{
+    margin-left: 0;
+  }
+  #calculator #result{
+    flex-direction: column;
+    row-gap: 24px;
+    border-radius: 16px;
+  }
+  #calculator {
+    position: inherit;
+    width: 100%;
+    transform: none;
+    /* width: calc(100% - 48px); */
+    /* transform: translate(24px, 52%); */
+    padding: 24px;
+    row-gap: 24px;
+    margin-top: -200px;
+  }
+  .input-group.input-measurements{
+    flex-direction: column;
+    row-gap: 16px;
+  }
+  header{
+    position: absolute;
+    top: 28px;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-20px);
+  }
+  header img{
+    width: 40px;
+  }
+  section#keyvisual{
+    padding: 0 24px;
+    height: fit-content;
+    margin-bottom: 72px;
+  }
+  #keyvisual #keyvisualBox-bg{
+    width: calc(100% + 48px);
+    transform: translateX(-24px);
+    position: inherit;
+    padding-bottom: 217px;
+  }
+  .keyvisual__text-container p{
+    margin-top: 24px;
   }
 }
