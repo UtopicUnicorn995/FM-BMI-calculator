@@ -302,6 +302,19 @@ section#keyvisual{
   font-size: 64px;
 }
 
+#calculator #result.none p{
+  text-align: start;
+}
+
+#calculator #result.none{
+  flex-direction: column;
+}
+
+
+#calculator #result .result-text h3{
+  color: var(--pure-white);
+}
+
 #calculator #result .result-description{
   display: flex;
   align-items: center;

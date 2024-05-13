@@ -94,15 +94,19 @@ export default function Calculator({ handleBMIValue }) {
       )}
       <div id="result">
         <div className="result-text">
-          <p>Your BMI is...</p>
-          <h2>23.5</h2>
+          {/* <p>Your BMI is...</p>
+          <h2>23.5</h2> */}
+          <h3>
+            Welcome!
+          </h3>
         </div>
 
         <div className="result-description">
-          <p>
+          {/* <p>
             Your BMI suggests you’re a healthy weight. Your ideal weight is
             between <span>63.3kgs - 85.2kgs</span>.
-          </p>
+          </p> */}
+          <p>Enter your height and weight to see your BMI result here</p>
         </div>
       </div>
     </div>
