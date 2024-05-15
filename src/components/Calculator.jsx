@@ -1,6 +1,10 @@
 import { useState } from "react";
 
-export default function Calculator({ handleBMIValue }) {
+export default function Calculator({
+  BMIValue,
+  handleGetHeightValue,
+  handleGetWeightValue,
+}) {
   const [measuring, setMeasuring] = useState("metric");
 
   return (
@@ -33,23 +37,23 @@ export default function Calculator({ handleBMIValue }) {
             <input
               type="number"
               placeholder="0"
-              name="height"
-              onChange={(e) =>
-                // handleBMIValue((prevValue) => ({
-                //   ...prevValue,
-                //   height: e.target.value,
-                // }))
-                console.log(handleBMIValue)
-                // console.log(e.target.value)
-              }
+              id="metricHeight"
+              name="metricHeight"
+              onChange={(e) => handleGetHeightValue(+e.target.value)}
             />
             <span>cm</span>
-            <label htmlFor="height">Height</label>
+            <label htmlFor="metricHeight">Height</label>
           </div>
           <div className="input-pair" id="weight">
-            <input type="number" placeholder="0" name="weight" id="weight" />
+            <input
+              type="number"
+              placeholder="0"
+              name="metricWeight"
+              id="metricWeight"
+              onChange={(e) => handleGetWeightValue(+e.target.value)}
+            />
             <span>kg</span>
-            <label htmlFor="weight">Weight</label>
+            <label htmlFor="metricWeight">Weight</label>
           </div>
         </div>
       ) : (
@@ -94,11 +98,16 @@ export default function Calculator({ handleBMIValue }) {
       )}
       <div id="result">
         <div className="result-text">
+          {BMIValue > 0 ? (
+            <>
+              <p>Your BMI is...</p>
+              <h2>{Math.round(BMIValue * 10)/ 10}</h2>
+            </>
+          ) : (
+            <h3>Welcome!</h3>
+          )}
           {/* <p>Your BMI is...</p>
           <h2>23.5</h2> */}
-          <h3>
-            Welcome!
-          </h3>
         </div>
 
         <div className="result-description">
@@ -106,7 +115,14 @@ export default function Calculator({ handleBMIValue }) {
             Your BMI suggests you’re a healthy weight. Your ideal weight is
             between <span>63.3kgs - 85.2kgs</span>.
           </p> */}
-          <p>Enter your height and weight to see your BMI result here</p>
+          {BMIValue > 0 ? (
+            <p>
+              Your BMI suggests you’re a healthy weight. Your ideal weight is
+              between <span>63.3kgs - 85.2kgs</span>.
+            </p>
+          ) : (
+            <p>Enter your height and weight to see your BMI result here</p>
+          )}
         </div>
       </div>
     </div>

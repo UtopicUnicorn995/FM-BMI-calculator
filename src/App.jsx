@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Logo from "/assets/images/logo.svg";
 import Calculator from "./components/Calculator.jsx";
 import YourResult from "./components/YourResult.jsx";
@@ -7,38 +7,57 @@ import Limitations from "./components/Limitations.jsx";
 
 function App() {
   const [BMI, setBMI] = useState({
-   height: 0,
-   weight: 0
+    height: 0,
+    weight: 0,
+    bodyBMI: 0,
   });
 
-  console.log(BMI)
+  const [imperialValue, setImperialValue] = useState({
+    feet: 0,
+    inches: 0,
+    st: 0,
+    lbs: 0
+  })
 
 
-  // function handleSetBMI(measurementType) {
-  //   switch(cm){
-  //     case 'cm':
-  //       setBMI(prevValue => ({...prevValue, weight: 50}) )
-  //   }
-  //   if(measuring === 'metric'){
-  //     setBMI(prevValue => ({...prevValue, weight: 50}) )
-  //   }else{
+  function handleGetHeight(height) {
+    setBMI((prevState) => ({ ...prevState, height: height / 100 }));
+  }
 
-  //   }
-    
-  // }
+  function handleGetWeight(weight) {
+    setBMI((prevState) => ({ ...prevState, weight }));
+  }
 
-  //metric muna
+  function handleImperialHeight(type ,height){
+    if(type == 'feet'){
+      setImperialValue(prevState => ({
+        ...prevState, [type]: height
+      }))
+    }
+  }
 
-  // function handleSetBMI(height, weight){
-  //   if(height){
-  //     setBMI(prevValue => ({...prevValue, height: height}) )
-  //   }else{
-  //     setBMI(prevValue => ({...prevValue, weight: weight}) )
-  //   }
-  //   console.log('function activating')
-  // }
+  function handleImperialWeight(type , weight){
+    if(type == 'st'){
+      setImperialValue(prevState => ({
+        ...prevState, [type]: weight
+      }))
+    }
+  }
 
-  function calculateBMI() {}
+  useEffect(() => {
+    handleCalculateBMI();
+  }, [BMI.height, BMI.weight]);
+
+  function handleCalculateBMI() {
+    if (BMI.height > 0 && BMI.weight > 0) {
+      const calcBMI = BMI.weight / (BMI.height * BMI.height);
+      setBMI((prevState) => ({
+        ...prevState,
+        bodyBMI: calcBMI,
+      }));
+    }
+    console.log(BMI);
+  }
 
   return (
     <>
@@ -61,7 +80,11 @@ function App() {
               </p>
             </div>
           </div>
-          <Calculator handleBMIValue={() => setBMI} />
+          <Calculator
+            BMIValue={BMI.bodyBMI}
+            handleGetHeightValue={handleGetHeight}
+            handleGetWeightValue={handleGetWeight}
+          />
         </section>
         <YourResult />
         <Tips />
